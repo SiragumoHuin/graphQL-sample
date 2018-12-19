@@ -1,0 +1,7 @@
+type Query {
+    text: Text
+}
+
+type Text {
+    text: String # テキスト内容
+}

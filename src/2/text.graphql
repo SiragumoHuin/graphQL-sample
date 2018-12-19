@@ -1,0 +1,8 @@
+type Query {
+    text: Text
+}
+
+type Text {
+    textId: ID! # テキストID
+    text: String! # テキスト内容
+}
