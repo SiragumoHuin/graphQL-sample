@@ -3,9 +3,10 @@ const {GraphQLServer} = require('graphql-yoga');
 const resolvers = {
     Query: {
         text: (obj, args, context, info) => {
+            // 本当はDBなどから取得する
             const text =
                 {
-                    text: 'Hello GraphQL',
+                    textData: 'Hello GraphQL',
                 };
             return text;
         },

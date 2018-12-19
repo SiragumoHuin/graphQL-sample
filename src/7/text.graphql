@@ -1,0 +1,60 @@
+scalar DateTime
+
+type Query {
+    text(textCondition: TextCondition!): [Text]
+}
+
+type Mutation {
+    createText(textCreateInput: TextCreateInput!): Text!
+    updateText(textUpdateInput: TextUpdateInput!): Text!
+    deleteText(textDeleteInput: TextDeleteInput!): MutationResult!
+}
+
+type Text {
+    textId: ID! # テキストID
+    textData: String! # テキスト内容
+    length: Int! # 長さ
+    bot: Boolean! # BOTからならtrue
+    version: Float! # バージョン
+    rank: Rank # ランク
+    createDate: DateTime! # 生成日時
+    updateDate: DateTime! # 更新日時
+}
+
+# Mutaion Result
+type MutationResult {
+    errorCode: String! # エラーコード
+    validationError: [ValidationError] # Validationエラー情報
+}
+
+# Validationエラー情報
+type ValidationError {
+    fieldName: String! # フィールド名
+    validationCode: String! # Validationエラー情報
+}
+
+enum Rank {
+    GOLD
+    SILVER
+    COPPER
+}
+
+input TextCondition {
+    textId: [ID]! # テキストID
+}
+
+# 登録インプット
+input TextCreateInput {
+    textData: String! # テキスト内容
+}
+
+# 更新インプット
+input TextUpdateInput {
+    textId: ID! # テキストID
+    textData: String! # テキスト内容
+}
+
+# 削除インプット
+input TextDeleteInput {
+    textId: [ID]! # テキストID（複数指定可）
+}

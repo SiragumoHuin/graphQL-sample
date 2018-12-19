@@ -3,12 +3,18 @@ const {GraphQLServer} = require('graphql-yoga');
 const resolvers = {
     Query: {
         text: (obj, args, context, info) => {
-            // 本当はDBなどから取得する
-            const text =
+            console.log(args);
+            // 本当はIDを使ってDBから複数件取得します
+            const text = [
                 {
                     textId: 'T1000',
                     textData: 'Hello GraphQL',
-                };
+                },
+                {
+                    textId: 'T1001',
+                    textData: 'こんにちは GraphQL',
+                },
+            ];
             return text;
         },
     },
@@ -16,7 +22,7 @@ const resolvers = {
 
 const server = new GraphQLServer(
     {
-        typeDefs: './src/2/text.graphql',
+        typeDefs: './src/4/text.graphql',
         resolvers,
     }
 );

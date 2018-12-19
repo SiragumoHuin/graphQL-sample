@@ -1,0 +1,42 @@
+scalar DateTime
+
+type Query {
+    text(textCondition: TextCondition!): [Text]
+}
+
+type Mutation {
+    createText(textCreateInput: TextCreateInput!): Text!
+    updateText(textUpdateInput: TextUpdateInput!): Text!
+}
+
+type Text {
+    textId: ID! # テキストID
+    textData: String! # テキスト内容
+    length: Int! # 長さ
+    bot: Boolean! # BOTからならtrue
+    version: Float! # バージョン
+    rank: Rank # ランク
+    createDate: DateTime! # 生成日時
+    updateDate: DateTime! # 更新日時
+}
+
+enum Rank {
+    GOLD
+    SILVER
+    COPPER
+}
+
+input TextCondition {
+    textId: [ID]! # テキストID
+}
+
+# 登録インプット
+input TextCreateInput {
+    textData: String! # テキスト内容
+}
+
+# 更新インプット
+input TextUpdateInput {
+    textId: ID! # テキストID
+    textData: String! # テキスト内容
+}

@@ -1,8 +1,12 @@
 type Query {
-    text: Text
+    text(textCondition: TextCondition!): Text
 }
 
 type Text {
     textId: ID! # テキストID
     textData: String! # テキスト内容
+}
+
+input TextCondition {
+    textId: ID! # テキストID
 }

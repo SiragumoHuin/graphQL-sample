@@ -3,5 +3,5 @@ type Query {
 }
 
 type Text {
-    text: String # テキスト内容
+    textData: String # テキスト内容
 }
