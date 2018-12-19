@@ -4,8 +4,8 @@ graphQL-sample
 GraphQLを一通り楽しめるサンプルです。
 
 ## Description
-こちらの記事のために作ったサンプルです。
-
+こちらの記事のために作ったサンプルです。  
+https://qiita.com/SiragumoHuin/items/cc58f456bc43a1be41b4
 
 
 ## Requirement
